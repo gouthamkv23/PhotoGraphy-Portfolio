@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://colormelon.com/wp-content/uploads/2016/09/favicon-512px.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init("nAkjihhNffAsKt6Wl");
+    })();
+ 
+    function sendMail() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+      var number = document.getElementById("number").value;
+      var valid = true;
+ 
+      if (name.trim() === "") {
+        alert("Please enter your name");
+        valid = false;
+      }
+ 
+       else if (email.trim() === "") {
+        alert("Please enter your email");
+        valid = false;
+      } else if (!validateEmail(email)) {
+        alert("Please enter a valid email address");
+        valid = false;
+      }
+ 
+      else if (message.trim() === "") {
+        alert("Please enter your message");
+        valid = false;
+      }
+ 
+     else if (number.trim() === "") {
+        alert("Please enter your mobile number");
+        valid = false;
+      } else if (!validatePhoneNumber(number)) {
+        alert("Please enter a valid phone number");
+        valid = false;
+      }
+ 
+      if (valid) {
+        var params = {
+          name: name,
+          email: email,
+          message: message,
+          number: number
+        };
+ 
+        const serviceID = "service_pxthz8b";
+        const templateID = "template_oltz14i";
+ 
+        emailjs.send(serviceID, templateID, params)
+          .then(function(response) {
+            console.log("SUCCESS", response);
+            alert("Your message has been sent successfully!");
+            document.getElementById("contact-form").reset();
+            window.location.href="index.html";
+          }, function(error) {
+            console.log("FAILED", error);
+            alert("Sorry, there was an error sending your message. Please try again later.");
+          });
+      }
+    }
+ 
+    function validateEmail(email) {
+      // Regular expression for email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+ 
+    function validatePhoneNumber(number) {
+      // Regular expression for phone number validation
+      var numberRegex = /^\d{10}$/;
+      return numberRegex.test(number);
+    }
+  </script>
+
+</head>
+<body style="background-color: black;">    
+    <div class='navbar' data-aos="zoom-in" data-aos-duration="1000" >
+        <div class='logo' data-aos="fade-right" data-aos-duration="1000">Captain<span> Cool</span></div>
+        <div class='links'data-aos="fade-left" data-aos-duration="1000">
+            <ul>
+                <li><a href='#Home'>Home</a></li>
+                <li><a href='#about'>About</a></li>
+                <li><a href='#gallery'>Gallery</a></li>
+                <li><a href='#contact'>Contact</a></li>
+            </ul>
+        </div>
+    </div>  
+
+    <div class='main'data-aos="fade-down" data-aos-duration ="1000" id = "Home">
+        <div class='content' >
+            <div class="c1">     
+                    <div class="wrapper1">
+                    <div class="static-text">I'm </div>
+                            <ul class="dynamic-text">
+                                <li><span>M.S.Dhoni</span></li>
+                                <li><span>Cricketer</span></li>
+                                <li><span>Optimistic</span></li>
+                                <li><span>Altruistic</span></li>
+                            </ul>
+                    </div>
+              
+            </div>
+            <div class="c2" id="content">“Forget Fear, Do Something Different.” 
+              “If you don't really have a dream, you can't really push yourself; you don't really know what the target is.” 
+              “One Day Reality Will Be Better Than Your Dreams.”</div>
+            <div class="btn">
+              
+            <div class="button">
+              <button onclick="quote()">Change Quote</button>
+              <button onclick="sound()">Read Quote</button>
+            </div>
+            </div>
+        </div> 
+    </div>
+
+    <div class='about' id='about'>
+      <div class='aboutwrapper' data-aos="fade-down-right" data-aos-duration="1000">
+        <p>Born</p>
+        Mahendra Singh Dhoni born 7 July 1981, commonly known as MS Dhoni, is a former
+        Indian cricketer and captain of the Indian national team in limited-overs formats from 2007 to 2017 and in Test
+        cricket from 2008 to 2014, who plays as a Wicket-keeper-Batsman.
+      </div>
+      <div class='aboutwrapper' data-aos="zoom-out-down" data-aos-duration="1000">
+        <p>Attainment</p>
+        He is the first cricketer to be a winning captain of all three major ICC trophies, as under his captaincy, India won
+        the 2007 ICC World Twenty20, the 2011 Cricket World Cup, and the 2013 ICC Champions Trophy, the most by any captain.
+        He also led India to victory in the 2010 and 2016 Asia Cup.
+      </div>
+      <div class='aboutwrapper' data-aos="fade-up-left" data-aos-duration="1000">
+        <p>Now</p>
+        He is also the current captain of Chennai Super Kings in the Indian Premier League. He is the first cricketer to be
+        a winning captain of all three major ICC trophies, as under his captaincy, India won the 2007 ICC World Twenty20,
+        the 2011 Cricket World Cup, and the 2013 ICC Champions Trophy, the most by any captain <a style="color: yellow;" href="https://en.wikipedia.org/wiki/MS_Dhoni" target="_blank" >More</a>
+      </div>
+    </div>
+
+    
+    <div class="gallery1" data-aos="flip-down" data-aos-duration="1000">
+      <div class="static-images-wrapper">
+        <div class="static-images">
+          <img
+            src="images/image-15.jpeg"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/image-9.png"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/image-2.png"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/image-3.png"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/image-4.png"
+            alt="img">
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery1" id="gallery" data-aos="flip-down" data-aos-duration="1000">
+      <div class="static-images-wrapper">
+        <div class="static-images">
+          <img src="images/image-7.png" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/image-6.png" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/image-11.jpeg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/image-13.jpeg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/image-14.jpeg" alt="img">
+        </div>
+      </div>  
+    </div>
+
+    <div class="gallery1" id="gallery" data-aos="flip-down" data-aos-duration="1000">
+      <div class="static-images-wrapper">
+        <div class="static-images">
+          <img src="images/slider-images/14.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/15.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/16.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/17.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/18.jpg" alt="img">
+        </div>
+      </div>  
+    </div>
+    
+
+
+    <div class="gallery">
+    <section data-aos="zoom-in" data-aos-duration="1000">
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left" style="z-index: 5;"></i>
+            <ul class="carousel">
+              <li class="card">
+                <div class="img"><img src="images/slider-images/1.jpg" alt="img" draggable="false"></div>          
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/2.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/3.jpg" alt="img" draggable="false"></div>          
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/4.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/5.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/6.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/7.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/8.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/9.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/16.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/11.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/12.jpg" alt="img" draggable="false"></div>
+              </li>
+              <li class="card">
+                <div class="img"><img src="images/slider-images/13.jpg" alt="img" draggable="false"></div>
+              </li>
+
+            </ul>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+          </div>            
+    </section>    
+    </div>
+
+    <div class="gallery1" data-aos="flip-down" data-aos-duration="1000">
+      <div class="static-images-wrapper">
+        <div class="static-images">
+          <img
+            src="images/slider-images/19.jpg"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/slider-images/27.jpg"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/slider-images/20.jpg"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/slider-images/21.jpg"
+            alt="img">
+        </div>
+        <div class="static-images">
+          <img
+            src="images/slider-images/22.jpg"
+            alt="img">
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery1"  data-aos="flip-down" data-aos-duration="1000">
+      <div class="static-images-wrapper">
+        <div class="static-images">
+          <img src="images/slider-images/23.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/24.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/25.jpg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/image-13.jpeg" alt="img">
+        </div>
+        <div class="static-images">
+          <img src="images/slider-images/26.jpg" alt="img">
+        </div>
+      </div>  
+    </div>
+
+
+     <div class="container col-md-7 border mt-3 bg-light" id="contact" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="row">
+          <div class="col-md-6 p-5 bg-primary text-white">
+            <h1>Let's connect with us!</h1>
+            <img src="images/contact.jpg" style="width: 250px; height:80%; position: center; size: cover">
+          
+          </div>
+          <div class="col-md-6 border-left py-3">
+            <h1>Contact form</h1>
+            <div class="form-group">
+              <h5 for="name">Name</h5>
+              <input
+                type="text" required
+                class="form-control"
+                id="name" 
+                placeholder="Enter name"
+              />
+            </div>
+            <div class="form-group">
+              <h5 for="email">Email</h5>
+              <input
+                type="email" required
+                class="form-control"
+                id="email" 
+                placeholder="Enter email"
+              />
+            </div>
+            <div class="form-group">
+              <h5 for="number">Mobile Number</h5>
+              <input
+                type="number"
+                class="form-control"
+                id="number" required
+                placeholder="Enter Mobile Number"
+              />
+            </div>
+            <div class="form-group">
+              <h5 for="message">Message</h5>
+              <textarea class="form-control" id="message" 
+            rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary"  onclick="sendMail()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+    <div class='sociallinks' >
+        <a href="https://www.instagram.com/msdhoniofficial/?hl=en" target="_blank" ><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/MSDhoni/" target="_blank" ><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://twitter.com/msdhoni" target="_blank" ><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/user/msdhoni" target="_blank" ><i class="fab fa-youtube"></i></a>
+        <a href="https://in.linkedin.com/company/msdhoni7777" target="_blank" ><i class="fab fa-linkedin"></i></a>           
+    </div>       
+
+          <!-- BUBBLE -->
+    <div class="background-wrap">
+        <div class="bubble">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+        </div>
+        <div class="bubble">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+        </div>
+        <div class="bubble">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+        </div>
+        <div class="bubble">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+         </div>
+      </div>     
+      <script src="script.js" defer></script>
+</body>
+</html>
